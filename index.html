@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="GaussianFlow: Splatting Gaussian Dynamics for 4D Content Creation">
+  <meta name="keywords" content="4D Generation, 4D Novel View Synthesis, 3D Gaussian
+  Splatting, Dynamic Scene, Optical Flow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nerfies: Deformable Neural Radiance Fields</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">GaussianFlow: Splatting Gaussian Dynamics for
+            4D Content Creation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://zerg-overmind.github.io/">Quankai Gao</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a href="https://xharlie.github.io/">Qiangeng Xu</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://zhec.github.io/">Zhe Cao</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://bmild.github.io/">Ben Mildenhall</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://wenchao-m.github.io/">Wenchao Ma</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://clthegoat.github.io/">Le Chen</a><sup>4</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=9uxs6G4AAAAJ&hl=en">Danhang Tang</a><sup>2</sup>
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=MHet2VoAAAAJ&hl=en">Ulrich Neumann</a><sup>2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Southern California,</span>
+            <span class="author-block"><sup>2</sup>Google,</span>
+            <span class="author-block"><sup>3</sup>Pennsylvania State University,</span>
+            <span class="author-block"><sup>4</sup>Max Planck Institute for Intelligent Systems</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://youtu.be/0qRcjTw7-YU"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/Zerg-Overmind/GaussianFlow"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <img src="static/images/teaser_web.png" alt="empty">
+        <p>
+          <br />
+          We propose Gaussian flow, a dense 2D motion flow created by splatting 3D Gaussian dynamics, which significantly benefits tasks such as 4D generation and 4D novel view synthesis. (a) Based on monocular videos generated by Lumiere \cite{bar2024lumiere} and Sora \cite{videoworldsimulators2024}), our model can generate 4D Gaussian Splatting fields that represent high-quality appearance, geometry and motions. (b) For 4D novel view synthesis, the motions in our generated 4D Gaussian fields are smooth and natural, even in highly dynamic regions where other existing methods suffer from undesirable artifacts.
+        </p>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Creating 4D fields of Gaussian Splatting from images or videos is a challenging task due to its under-constrained nature. While the optimization can draw photometric reference from the input videos or be regulated by generative models, directly supervising Gaussian motions remains underexplored. In this paper, we introduce a novel concept, Gaussian flow, which connects the dynamics of 3D Gaussians and pixel velocities between consecutive frames. The Gaussian flow can be efficiently obtained by splatting Gaussian dynamics into the image space. This differentiable process enables direct dynamic supervision from optical flow. Our method significantly benefits 4D dynamic content generation and 4D novel view synthesis with Gaussian Splatting, especially for contents with rich motions that are hard to be handled by existing methods. The common color drifting issue that happens in 4D generation is also resolved with improved Guassian dynamics. Superior visual quality on extensive experiments demonstrates our method's effectiveness. Quantitative and qualitative evaluations show that our method achieves state-of-the-art results on both tasks of 4D generation and 4D novel view synthesis.    
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="./static/images/white.mp4"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Method. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Method</h2>
+
+        <!-- Interpolating. -->
+        <img src="./static/images/flow_cal.pdf" class="interpolation-image" alt="Interpolate start reference image."/>
+        <p>
+          <br />
+          Between two consecutive frames, a pixel $x_{t_1}$ will be pushed towards $x_{t_1} \rightarrow x_{i,t_2}$ by the 2D Gaussian $i$'s motion $i^{t_1} \rightarrow i^{t_2}$. We can track $x_{t_1}$ in Gaussian $i$ by normalizing it to canonical Gaussian space as $\hat{x}_i$ and unnormalize it to image space to obtain $x_{i,t_2}$. Here, we denote this shift contribution from Gaussian $i$ as $flow^G_{i,t_1,t_2}$. The Gaussian flow $flow^G_{t_1,t_2}(x_{t_1})$ on pixel $x_{t_1}$ is defined as the weighted sum of the shift contributions from all Gaussians covering the pixel ($i$ and $j$ in our example). The weighting factor utilizes alpha composition weights. The Gaussian flow of the entire image can be obtained efficiently by splatting 3D Gaussian dynamics and rendering with alpha composition, which can be implemented similarly to the pipeline of the original 3D Gaussian Splatting.
+        </p>
+      <!--/ Interpolating. -->
+      </div>
+    </div>
+    <!--/ Method. -->
+    <br />
+    <!-- Results -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Results</h2>
+        <h3 class="title is-4">1. Qualitative results on Consistent4D datase</h3>
+        <img src="./static/images/con4d_vis2.pdf" class="interpolation-image" alt="Empty"/>
+        <br />
+        <img src="./static/images/flow_compare_crop.pdf" class="interpolation-image" alt="Empty"/>
+        <br />
+        <p>
+          Visualization of optical and Gaussian flows on the input view and a novel view. ``Ours (no flow)'' denotes our model without flow supervision while ``Ours'' is our full model. Note that optical flow values of the background should be ignored because dense optical flow algorithms calculate correspondences among background pixels. We calculate optical flow $flow^o_{t_1t_2}$ on rendered sequences by autoflow~\cite{sun2021autoflow}. From the $\#$1 and the $\#$4 column, we can see that both rendered sequences on input view have high-quality optical flow, indicating correct motions and appearance. Comparing Gaussian flows at the $\#$2 and the $\#$5 column, we can see that the underlining Gaussians will move inconsistently without flow supervision. It is due to the ambiguity of appearance and motions while only being optimized by photometric loss on a single input view. Aligning Gaussian flow to optical flow can drastically improve irregular motions ( $\#$3 column) and create high-quality dynamic motions ($\#$6 column) on novel views.
+        </p>
+        <br />
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{gao2024gaussianflow,
+  author    = {Quankai Gao and Qiangeng Xu and Zhe Cao and Ben Mildenhall and Wenchao Ma and Le Chen and Danhang Tang and Ulrich Neumann},
+  title     = {GaussianFlow: Splatting Gaussian Dynamics for 4D Content Creation},
+  journal   = {},
+  year      = {2024},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
