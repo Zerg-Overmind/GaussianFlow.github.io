@@ -224,14 +224,18 @@
       <div class="column is-full-width">
         <h2 class="title is-3">Results</h2>
         <h3 class="title is-4">1. Qualitative results on Consistent4D datase</h3>
-        <img src="./static/images/con4d_vis2.png" class="interpolation-image" alt="Empty"/>
+        <img src="./static/images/con4d_vis2.png" class="interpolation-image" alt="Empty"/> 
         <br />
+        
+        <h3 class="title is-4">2. Gaussian flow and optical flow</h3>
         <img src="./static/images/flow_compare_crop.png" class="interpolation-image" alt="Empty"/>
         <br />
         <p>
+          <br />
           Visualization of optical and Gaussian flows on the input view and a novel view. ``Ours (no flow)'' denotes our model without flow supervision while ``Ours'' is our full model. Note that optical flow values of the background should be ignored because dense optical flow algorithms calculate correspondences among background pixels. We calculate optical flow $flow^o_{t_1t_2}$ on rendered sequences by autoflow. From the $\#$1 and the $\#$4 column, we can see that both rendered sequences on input view have high-quality optical flow, indicating correct motions and appearance. Comparing Gaussian flows at the $\#$2 and the $\#$5 column, we can see that the underlining Gaussians will move inconsistently without flow supervision. It is due to the ambiguity of appearance and motions while only being optimized by photometric loss on a single input view. Aligning Gaussian flow to optical flow can drastically improve irregular motions ( $\#$3 column) and create high-quality dynamic motions ($\#$6 column) on novel views.
         </p>
         <br />
+
       </div>
     </div>
   </div>
