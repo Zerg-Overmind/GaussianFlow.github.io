@@ -254,11 +254,21 @@
           <br />
           The left column shows the novel view rendered images and depth maps of RT-4DGS, which suffers from artifacts in the dynamic regions and can hardly handle time-variant specular effect on the moving glossy object. The right column shows the results of the same method while optimized with our flow supervision during training. Please refer to our paper and video for more results.
         </p>
+
+        <br />
         <h4 class="title is-5">Video Results</h4>
         <!-- <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
           <source src="./static/videos/0.mp4" type="video/mp4">
         </video> -->
         <video poster="" id="chair-tp" autoplay controls muted loop playsinline >
+          <style>
+            video {
+                height: 100vh;
+                width: 100%;
+                object-fit: fill; 
+                position: absolute;
+            }
+          </style>
           <source src="./static/videos/dynerf_comp_texture.mp4" type="video/mp4">
         </video>
         <video poster="" id="chair-tp" autoplay controls muted loop playsinline >
