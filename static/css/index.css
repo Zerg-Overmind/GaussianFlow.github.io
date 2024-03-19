@@ -93,9 +93,9 @@ body {
     position: relative;
     width: 100%;
     padding-bottom: 56.25%;
-
+    padding-top: 10%;
     overflow: hidden;
-    border-radius: 10px !important;
+    border-radius: 15px !important;
 }
 
 .publication-video iframe {
