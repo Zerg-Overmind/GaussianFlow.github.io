@@ -44,6 +44,15 @@ body {
   object-fit: fit;
 }
 
+.video_back{
+  position: relative;
+  width: 100%;
+  right: -3px;
+  top: auto;
+  transform: none;
+  /* object-fit: fit; */
+}
+
 .publication-header .hero-body {
 }
 
@@ -95,7 +104,7 @@ body {
     padding-bottom: 56.25%;
     /* padding-top: 10%; */
     overflow: hidden;
-    border-radius: 15px !important;
+    border-radius: 10px !important;
 }
 
 .publication-video iframe {
