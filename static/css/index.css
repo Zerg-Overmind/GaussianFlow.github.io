@@ -46,8 +46,8 @@ body {
 
 .video_back{
   position: relative;
-  width: 100%;
-  right: -3px;
+  height: 100%;
+  right: -50px;
   top: auto;
   transform: none;
   /* object-fit: fit; */
